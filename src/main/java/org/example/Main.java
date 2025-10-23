@@ -18,44 +18,47 @@ public class Main {
 
 
         CategoryRepository categoryRepo = context.getBean(CategoryRepository.class);
-
-        Category category = new Category();
-        category.setName("Science Fiction");
-        category.setDescription("Films that explore futuristic concepts and advanced technology.");
-
-        categoryRepo.save(category);
-
+        FilmRepository filmRepo = context.getBean(FilmRepository.class);
         DirectorRepository directorRepo = context.getBean(DirectorRepository.class);
 
-        Director director = new Director();
-        director.setFirstName("Christopher");
-        director.setLastName("Nolan");
-        director.setNationality("British-American");
-        director.setBirthDate(java.time.LocalDate.of(1970, 7, 30));
-        director.setBiography("Christopher Nolan is a renowned filmmaker known for his complex storytelling and innovative techniques.");
+//        Category category = new Category();
+//        category.setName("Science Fiction");
+//        category.setDescription("Films that explore futuristic concepts and advanced technology.");
+//
+//        categoryRepo.save(category);
+//
+//
+//        Director director = new Director();
+//        director.setFirstName("Christopher");
+//        director.setLastName("Nolan");
+//        director.setNationality("British-American");
+//        director.setBirthDate(java.time.LocalDate.of(1970, 7, 30));
+//        director.setBiography("Christopher Nolan is a renowned filmmaker known for his complex storytelling and innovative techniques.");
+//
+//        directorRepo.save(director);
+//
+//
+//        Film film = new Film();
+//        film.setTitle("Dream Within a Dream");
+//        film.setReleaseYear(2011);
+//        film.setDuration(150);
+//        film.setRating(9.8);
+//        film.setSynopsis("A skilled thief is given a chance at redemption if he can successfully perform an inception.");
+//        film.setDirector(director);
+//        film.setCategory(category);
+//
+//
+//        filmRepo.save(film);
 
-        directorRepo.save(director);
 
 
-        // Get FilmRepository bean
-        FilmRepository filmRepo = context.getBean(FilmRepository.class);
-
-
-        Film film = new Film();
-        film.setTitle("Inception");
-        film.setReleaseYear(2010);
-        film.setDuration(148);
-        film.setRating(8.8);
-        film.setSynopsis("A thief who steals corporate secrets using dream-sharing technology...");
-        film.setDirector(director);
-        film.setCategory(category);
-
-
-        filmRepo.save(film);
-
-
-
-
+        FilmRepository filmRepository = context.getBean(FilmRepository.class);
+        for (Film film : filmRepository.findAll()) {
+            System.out.println("Film Title: " + film.getTitle());
+            System.out.println("Director: " + film.getDirector().getFirstName() + " " + film.getDirector().getLastName());
+            System.out.println("Category: " + film.getCategory().getName());
+            System.out.println("-----");
+        }
 
     }
 }

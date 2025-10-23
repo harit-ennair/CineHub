@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- src/main/webapp/WEB-INF/web.xml -->
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
@@ -8,11 +7,10 @@
 
     <display-name>CinéHub</display-name>
 
-    <!-- 1. DispatcherServlet -->
+    <!-- DispatcherServlet -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- applicationContext.xml -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:applicationContext.xml</param-value>
@@ -20,13 +18,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <!-- 2. Mapping DispatcherServlet -->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/api/*</url-pattern>  <!-- APIs -->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!-- 3. Encoding Filter -->
+    <!-- Encoding Filter -->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -42,7 +39,7 @@
 
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </filter-mapping>
 
 </web-app>

@@ -1,6 +1,8 @@
 package org.example.cinehub.model;
 
-import javax.persistence.*;
+//import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity

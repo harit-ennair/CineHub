@@ -1,6 +1,11 @@
 package org.example.cinehub.model;
 
-import javax.persistence.*;
+//import jakarta.persistence.CascadeType;
+//import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+//import jakarta.persistence.Table;
+
+//import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
