@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.cinehub.controller.FilmController;
 import org.example.cinehub.model.Category;
 import org.example.cinehub.model.Director;
 import org.example.cinehub.model.Film;
@@ -15,11 +16,11 @@ public class Main {
     public static void main(String[] args) {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-
-
-        CategoryRepository categoryRepo = context.getBean(CategoryRepository.class);
-        FilmRepository filmRepo = context.getBean(FilmRepository.class);
-        DirectorRepository directorRepo = context.getBean(DirectorRepository.class);
+//
+//
+//        CategoryRepository categoryRepo = context.getBean(CategoryRepository.class);
+//        FilmRepository filmRepo = context.getBean(FilmRepository.class);
+//        DirectorRepository directorRepo = context.getBean(DirectorRepository.class);
 
 //        Category category = new Category();
 //        category.setName("Science Fiction");
@@ -52,13 +53,22 @@ public class Main {
 
 
 
-        FilmRepository filmRepository = context.getBean(FilmRepository.class);
-        for (Film film : filmRepository.findAll()) {
-            System.out.println("Film Title: " + film.getTitle());
-            System.out.println("Director: " + film.getDirector().getFirstName() + " " + film.getDirector().getLastName());
-            System.out.println("Category: " + film.getCategory().getName());
-            System.out.println("-----");
-        }
+//        FilmRepository filmRepository = context.getBean(FilmRepository.class);
+//        for (Film film : filmRepository.findAll()) {
+//            System.out.println("Film Title: " + film.getTitle());
+//            System.out.println("Director: " + film.getDirector().getFirstName() + " " + film.getDirector().getLastName());
+//            System.out.println("Category: " + film.getCategory().getName());
+//            System.out.println("-----");
+//        }
+        FilmController filmController = context.getBean(FilmController.class);
+//        for (Film film : filmController.getAllFilms()) {
+//            System.out.println("Film Title: " + film.getTitle());
+//            System.out.println("Director: " + film.getDirector().getFirstName() + " " + film.getDirector().getLastName());
+//            System.out.println("Category: " + film.getCategory().getName());
+//            System.out.println("-----");
+//        }
+
+        filmController.getAllFilms();
 
     }
 }
