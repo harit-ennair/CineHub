@@ -3,7 +3,6 @@ package org.example.cinehub.controller;
 import org.example.cinehub.model.Category;
 import org.example.cinehub.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,10 +18,9 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping(value = "/all", produces = "application/json")
-    public ResponseEntity<List<Category>> getAllCategories() {
-        System.out.println("Fetching all categories" + categoryService.getAllCategories());
-        return ResponseEntity.ok(categoryService.getAllCategories());
+    @GetMapping
+    public List<Category> getAllCategories() {
+        return categoryService.getAllCategories();
     }
 
     @GetMapping("/{id}")
