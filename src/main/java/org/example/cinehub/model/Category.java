@@ -1,6 +1,7 @@
 package org.example.cinehub.model;
 
 //import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Category {
     @Column(length = 1000)
     private String description;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Film> films;
 

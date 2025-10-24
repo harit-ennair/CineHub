@@ -2,6 +2,7 @@ package org.example.cinehub.model;
 
 //import jakarta.persistence.CascadeType;
 //import jakarta.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 //import jakarta.persistence.Table;
 
@@ -26,6 +27,7 @@ public class Director {
     @Column(length = 2000)
     private String biography;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Film> films;
 

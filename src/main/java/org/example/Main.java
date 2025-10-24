@@ -1,12 +1,6 @@
 package org.example;
 
 import org.example.cinehub.controller.FilmController;
-import org.example.cinehub.model.Category;
-import org.example.cinehub.model.Director;
-import org.example.cinehub.model.Film;
-import org.example.cinehub.repository.CategoryRepository;
-import org.example.cinehub.repository.DirectorRepository;
-import org.example.cinehub.repository.FilmRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/dispatcher-servlet.xml");
 //
 //
 //        CategoryRepository categoryRepo = context.getBean(CategoryRepository.class);
